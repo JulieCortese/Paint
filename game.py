@@ -2,6 +2,7 @@
 import pygame
 import sys
 from constants import *
+pygame.init()
 
 fps = 60
 timer = pygame.time.Clock()
@@ -18,16 +19,25 @@ def res_button(screen):
     button_font = pygame.font.Font(None, 50)
     reset_text = button_font.render('Reset', True, (0, 0, 0))
     reset_surf = pygame.Surface((reset_text.get_size()[0] + 20, reset_text.get_size()[1] + 20))
+    reset_surf.fill((235, 148, 9))
+    reset_surf.blit(reset_text, (10, 10))
     reset_rect = reset_surf.get_rect(center=(1100, 750))
     screen.blit(reset_surf, reset_rect)
     pygame.display.update()
+    return reset_rect
 
 
 while run:
     timer.tick(fps)
     mouse_pos = pygame.mouse.get_pos()
+    reset_button = res_button(screen)
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
+            if reset_button.collidepoint(event.pos):
+                screen.fill((255, 255, 255))
+                reset_button = res_button(screen)
+                pygame.display.flip()
+                continue
             draw = True
         elif event.type == pygame.MOUSEBUTTONUP:
             draw = False
