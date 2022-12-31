@@ -33,11 +33,11 @@ while run:
     reset_button = res_button(screen)
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-            if reset_button.collidepoint(event.pos):
+            if reset_button.collidepoint(event.pos):  # clears screen of drawings
                 screen.fill((255, 255, 255))
                 reset_button = res_button(screen)
                 pygame.display.flip()
-                continue
+                continue  # makes it so you can't click and drag from the reset button
             draw = True
         elif event.type == pygame.MOUSEBUTTONUP:
             draw = False
