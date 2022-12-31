@@ -1,10 +1,8 @@
 # this is paint
 import pygame
 import sys
-WIDTH = 1200
-HEIGHT = 800
-BG_COLOR = (255, 255, 255)
-COLOR = (0, 0, 0)
+from constants import *
+
 fps = 60
 timer = pygame.time.Clock()
 
@@ -41,4 +39,4 @@ while run:
         mouse_pos = pygame.mouse.get_pos()
         x, y = mouse_pos
         pygame.draw.rect(screen, COLOR, pygame.Rect(x, y, 10, 10))
-        pygame.display.update()
+        pygame.display.flip()
