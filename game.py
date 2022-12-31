@@ -53,6 +53,7 @@ while run:
         if event.type == pygame.MOUSEBUTTONDOWN:
             if reset_button.collidepoint(event.pos):  # clears screen of drawings
                 screen.fill((255, 255, 255))
+                color = (0, 0, 0)
                 reset_button, color_change_button = res_button(screen)
                 pygame.display.flip()
                 continue  # makes it so you can't click and drag from the reset button
@@ -61,9 +62,9 @@ while run:
                 # make way of changing color (in a different screen maybe)
                 draw = True
                 continue
-            elif colors[0].collidepoint(event.pos):
-                print('clicked')
-                continue
+            # elif colors[0].collidepoint(event.pos):
+                # print('clicked')
+                # continue
             draw = True
         elif event.type == pygame.MOUSEBUTTONUP:
             draw = False
