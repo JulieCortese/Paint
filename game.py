@@ -44,12 +44,30 @@ def color_change(screen):
         center=(WIDTH // 2, HEIGHT // 2 - 300))
     screen.blit(title_surface, title_rectangle)
 
-    pick_text = 'pick'
+    done_text = button_font.render('Paint', True, (0, 0, 0))
+    done_surf = pygame.Surface((done_text.get_size()[0] + 20, done_text.get_size()[1] + 20))
+    done_surf.fill((235, 148, 9))
+    done_surf.blit(done_text, (10, 10))
+    done_rect = done_surf.get_rect(center=(1100, 750))
+    screen.blit(done_surf, done_rect)
     pygame.display.update()
-    while True:
+
+    done = False
+    while True and not done:
+        timer.tick(fps)
+        pygame.draw.rect(screen, color, [WIDTH // 2 - 200, HEIGHT // 2 - 200, 400, 400])
+        pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN:
-                pass
+                if done_rect.collidepoint(event.pos):
+                    screen.fill(BG_COLOR)
+                    reset_button, color_change_button = res_button(screen)
+                    done = True
+                    break
+            if event.type == pygame.QUIT:
+                pygame.display.quit()
+                pygame.quit()
+                sys.exit()
 
 
 while run:
