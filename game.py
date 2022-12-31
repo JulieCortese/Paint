@@ -30,7 +30,6 @@ while run:
     mouse_pos = pygame.mouse.get_pos()
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print('yes')
             draw = True
         elif event.type == pygame.MOUSEBUTTONUP:
             draw = False
