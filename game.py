@@ -16,6 +16,8 @@ while not restart:
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
             print('yes')
+            pos = event.pos
+            print(pos)
         if event.type == pygame.QUIT:
             pygame.display.quit()
             pygame.quit()
