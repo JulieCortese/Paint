@@ -22,14 +22,14 @@ def res_button(screen):
     reset_surf = pygame.Surface((reset_text.get_size()[0] + 20, reset_text.get_size()[1] + 20))
     reset_surf.fill((235, 148, 9))
     reset_surf.blit(reset_text, (10, 10))
-    reset_rect = reset_surf.get_rect(center=(1100, 750))
+    reset_rect = reset_surf.get_rect(center=(1120, 750))
     screen.blit(reset_surf, reset_rect)
 
     erase_text = button_font.render('Erase', True, (0, 0, 0))
     erase_surf = pygame.Surface((erase_text.get_size()[0] + 20, erase_text.get_size()[1] + 20))
     erase_surf.fill((235, 148, 9))
     erase_surf.blit(erase_text, (10, 10))
-    erase_rect = erase_surf.get_rect(center=(960, 750))
+    erase_rect = erase_surf.get_rect(center=(980, 750))
     screen.blit(erase_surf, erase_rect)
 
     pygame.display.update()
